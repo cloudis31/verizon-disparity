@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DEB6785F-5ED1-45AF-847E-991E869C051A}</ProjectGuid>
+    <RootNamespace>Verizon_AR_Assignment</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;opencv_core310d.lib;opencv_highgui310d.lib;opencv_imgcodecs310d.lib;opencv_calib3d310d.lib;opencv_imgproc310d.lib;opencv_ximgproc310d.lib;opencv_features2d310d.lib;opencv_videoio310d.lib;opencv_xfeatures2d310d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_core310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_imgcodecs310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_highgui310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_videoio310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_imgproc310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_calib3d310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_features2d310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_flann310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_ximgproc310d.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_xfeatures2d310d.dll" "$(TargetDir)" /c /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;opencv_core310.lib;opencv_highgui310.lib;opencv_imgcodecs310.lib;opencv_calib3d310.lib;opencv_imgproc310.lib;opencv_ximgproc310.lib;opencv_features2d310.lib;opencv_videoio310.lib;opencv_xfeatures2d310.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_core310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_imgcodecs310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_highgui310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_videoio310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_imgproc310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_calib3d310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_features2d310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_flann310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_ximgproc310.dll" "$(TargetDir)" /c /y
+xcopy "$(SolutionDir)\..\Libraries\opencv-master\builds\win64\install\x86\vc14\bin\opencv_xfeatures2d310.dll" "$(TargetDir)" /c /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="appcontext.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="colorshader.cpp" />
+    <ClCompile Include="disparitymapper.cpp" />
+    <ClCompile Include="entity_fullscreenquad.cpp" />
+    <ClCompile Include="entity_pointcloud.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ogl.cpp" />
+    <ClCompile Include="scene_assignment1_2.cpp" />
+    <ClCompile Include="scene_assignment3.cpp" />
+    <ClCompile Include="texture.cpp" />
+    <ClCompile Include="textureshader.cpp" />
+    <ClCompile Include="window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="appcontext.h" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="colorshader.h" />
+    <ClInclude Include="disparitymapper.h" />
+    <ClInclude Include="entities.h" />
+    <ClInclude Include="entity_fullscreenquad.h" />
+    <ClInclude Include="entity_pointcloud.h" />
+    <ClInclude Include="interfaces.h" />
+    <ClInclude Include="math.h" />
+    <ClInclude Include="ps_texture.glsl" />
+    <ClInclude Include="ogl.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="scenes.h" />
+    <ClInclude Include="scene_assignment1_2.h" />
+    <ClInclude Include="scene_assignment3.h" />
+    <ClInclude Include="shaders.h" />
+    <ClInclude Include="texture.h" />
+    <ClInclude Include="textureshader.h" />
+    <ClInclude Include="window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ps_color.glsl" />
+    <None Include="vs_color.glsl" />
+    <None Include="vs_texture.glsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
