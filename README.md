@@ -17,3 +17,6 @@ Assignment files (images) are located in:
 Code is located in:
 
 **\Verizon_AR_Assignment**
+
+Demo can be found at:
+https://www.youtube.com/watch?v=XBHFQGKl5cY
